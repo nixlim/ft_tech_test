@@ -8,6 +8,7 @@
   },
   "scripts": {
     "test": "jest --coverage",
+    "feature_test": "npx cypress open",
     "start": "node ./bin/www"
   },
   "jest": {
