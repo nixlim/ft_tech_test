@@ -15,6 +15,10 @@ class ApiConnectionInterface {
 
   sendRequestToApi () {
     let connection = http.request(this.connectionConfig)
+    this._writeToApi(connection)
+  }
+
+  _writeToApi (connection) {
     connection.on('error', (error) => {
       console.log('REQUEST ERROR: ' + error.message)
     })
