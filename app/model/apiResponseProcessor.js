@@ -8,6 +8,9 @@ class ApiResponseProcessor {
       this.apiResponse += dataChunk
     })
 
+    apiConnection.on('end', () => {
+      return JSON.parse(this.apiResponse)
+    })
   }
 
 }

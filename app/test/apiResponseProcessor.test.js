@@ -21,7 +21,12 @@ describe('ApiResponseProcessor', () => {
       expect(processResponseSpy).toHaveBeenCalledWith(mockConnection)
     })
 
-    it('should call .on on the connection', () => {
+    it('should call .on on ("data")', () => {
       expect(connectionOnSpy).toHaveBeenCalledWith('data', expect.any(Function))
     })
+
+    it('should call .on on ("end")', () => {
+      expect(connectionOnSpy).toHaveBeenCalledWith('end', expect.any(Function))
+    })
+  })
 })
