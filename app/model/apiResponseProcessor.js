@@ -5,12 +5,20 @@ class ApiResponseProcessor {
 
   processResponse (apiConnection) {
     apiConnection.on('data', (dataChunk) => {
-      this.apiResponse += dataChunk
+      this._collateResponseChunks(dataChunk)
     })
 
     apiConnection.on('end', () => {
-      return JSON.parse(this.apiResponse)
+      this._parseResponseJSON()
     })
+  }
+
+  _collateResponseChunks (dataChunk) {
+    this.apiResponse += dataChunk
+  }
+
+  _parseResponseJSON () {
+    return JSON.parse(this.apiResponse)
   }
 
 }

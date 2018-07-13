@@ -29,4 +29,12 @@ describe('ApiResponseProcessor', () => {
       expect(connectionOnSpy).toHaveBeenCalledWith('end', expect.any(Function))
     })
   })
+
+  describe('_collateResponseChunks', () => {
+
+    it('should add data to this.response', () => {
+      apiResponseProcessor._collateResponseChunks('some data')
+      expect(apiResponseProcessor.apiResponse).toEqual('some data')
+    })
+  })
 })
