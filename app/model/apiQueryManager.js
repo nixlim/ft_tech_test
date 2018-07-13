@@ -5,12 +5,23 @@ class ApiQueryManager {
   constructor (searchTerm) {
     this.searchTerm = searchTerm
     this.query = null
-    this.apiConnector = ApiConnectionInterface
-    this.responseProcessor = ApiResponseProcessor
+    this.ApiConnector = ApiConnectionInterface
+    this.ResponseProcessor = ApiResponseProcessor
   }
 
   buildQuery () {
-
+    this.query = JSON.stringify({
+      'queryString': `${this.searchTerm}`,
+      'queryContext': {
+        'curations': ['ARTICLES']
+      },
+      'resultContext': {
+        'aspects': [ 'title' ],
+        'maxResults': '10'
+      }
+    })
+    let connectToApi = new this.ApiConnector(this.query, new this.ResponseProcessor())
+    connectToApi.sendRequestToApi()
   }
 }
 
