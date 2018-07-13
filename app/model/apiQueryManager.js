@@ -23,7 +23,7 @@ class ApiQueryManager {
     this._makeApiCall()
   }
 
-  _makeApiCall() {
+  _makeApiCall () {
     let connectToApi = new this.ApiConnector(this.query, new this.ResponseProcessor())
     connectToApi.sendRequestToApi()
   }
