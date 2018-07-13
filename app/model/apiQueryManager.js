@@ -8,6 +8,10 @@ class ApiQueryManager {
     this.apiConnector = ApiConnectionInterface
     this.responseProcessor = ApiResponseProcessor
   }
+
+  buildQuery () {
+
+  }
 }
 
 module.exports = ApiQueryManager
