@@ -1,0 +1,22 @@
+{
+  "name": "ft_tech_test",
+  "version": "1.0.0",
+  "description": "FT scoutAsia tech test",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nixlim/ft_tech_test.git"
+  },
+  "author": "Igor Ryabchuk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nixlim/ft_tech_test/issues"
+  },
+  "homepage": "https://github.com/nixlim/ft_tech_test#readme"
+}
