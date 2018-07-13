@@ -7,7 +7,13 @@
     "test": "test"
   },
   "scripts": {
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "start": "node ./bin/www"
+  },
+  "jest": {
+    "modulePathIgnorePatterns": [
+      "cypress"
+    ]
   },
   "repository": {
     "type": "git",
@@ -20,7 +26,9 @@
   },
   "homepage": "https://github.com/nixlim/ft_tech_test#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.3",
+    "express-session": "^1.15.6",
     "http-errors": "~1.6.2",
     "pug": "2.0.0-beta11"
   },
