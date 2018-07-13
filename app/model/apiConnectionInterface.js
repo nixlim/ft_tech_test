@@ -1,10 +1,9 @@
 const http = require('http')
-const ApiResponseProcessor = require('../model/apiResponseProcessor')
 
 class ApiConnectionInterface {
-  constructor (searchQuery) {
+  constructor (searchQuery, responseProcessor) {
     this.searchQuery = searchQuery
-    this.apiResponseProcessor = new ApiResponseProcessor()
+    this.apiResponseProcessor = responseProcessor
     this.connectionConfig = {
       hostname: 'api.ft.com',
       path: '/content/search/v1?apiKey=59cbaf20e3e06d3565778e7bb6d633b231e14a829d3c757511c91e5f',
