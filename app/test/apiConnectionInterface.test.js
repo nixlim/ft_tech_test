@@ -39,6 +39,7 @@ describe('ApiConnectionInterface', () => {
 
     it('should call on', () => {
       expect(connectionOnSpy).toHaveBeenCalledTimes(1)
+      expect(connectionOnSpy).toHaveBeenCalledWith('error', expect.any(Function))
     })
 
     it('should call write with searchquery', () => {
