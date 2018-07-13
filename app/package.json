@@ -18,5 +18,14 @@
   "bugs": {
     "url": "https://github.com/nixlim/ft_tech_test/issues"
   },
-  "homepage": "https://github.com/nixlim/ft_tech_test#readme"
+  "homepage": "https://github.com/nixlim/ft_tech_test#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "http-errors": "~1.6.2",
+    "pug": "2.0.0-beta11"
+  },
+  "devDependencies": {
+    "cypress": "^3.0.2",
+    "jest": "^23.4.0"
+  }
 }
