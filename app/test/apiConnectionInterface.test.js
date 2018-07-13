@@ -31,6 +31,7 @@ describe('ApiConnectionInterface', () => {
 
     it('should call http.request', () => {
       expect(httpRequestSpy).toHaveBeenCalledTimes(1)
+      expect(httpRequestSpy).toHaveBeenCalledWith(apiConnectionInterface.connectionConfig, expect.any(Function))
     })
 
     it('should call write on http.request connection', () => {
