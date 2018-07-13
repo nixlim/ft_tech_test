@@ -14,7 +14,12 @@ class ApiConnectionInterface {
   }
 
   sendRequestToApi () {
-
+    let connection = http.request(this.connectionConfig)
+    connection.on('error', (error) => {
+      console.log('REQUEST ERROR: ' + error.message)
+    })
+    connection.write(this.searchQuery)
+    connection.end()
   }
 }
 
