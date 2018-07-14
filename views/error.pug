@@ -1,0 +1,8 @@
+extends layout
+
+block content
+    h1(class='o-typography-headline--large')
+        a(href='/' title='Go to homepage' class='home-link' aria-label='Return to homepage')= title
+    h2 Error #{error.status}
+    p The page that you're looking for was not found.
+    p Try returning to the <a href='/'>homepage</a>

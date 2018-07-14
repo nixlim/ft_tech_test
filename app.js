@@ -1,3 +1,4 @@
+const createError = require('http-errors')
 const express = require('express')
 const bodyParser = require('body-parser')
 const path = require('path')
@@ -12,5 +13,17 @@ app.use(bodyParser.urlencoded({
 }))
 app.use(express.static(path.join(__dirname, 'public')))
 app.use('/', indexRoute)
+
+app.use((req, res, next) => {
+  next(createError(404))
+})
+
+app.use((error, req, res, next) => {
+  res.status(error.status || 500)
+  res.render('error', {
+    title: 'FT Headlines Search',
+    error: error
+  })
+})
 
 module.exports = app
