@@ -1,3 +1,11 @@
+html {
+    font-family: FinancierDisplayWeb, sans-serif;
+}
+
 body {
     background-color: #FFF1E5;
+}
+
+.o-typography-headline--large {
+    font-family: MetricWeb, serif;
 }
