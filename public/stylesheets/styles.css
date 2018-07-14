@@ -10,8 +10,18 @@ body {
     font-family: MetricWeb, serif;
 }
 
+.o-forms__label {
+    font-size: calc(20px + 0.5vw);
+}
+
+.o-forms__additional-info {
+    font-size: calc(15px + 0.5vw);
+    line-height: normal;
+}
+
+
 li, .result-link {
-    font-size: 26px;
+    font-size: calc(20px + 0.5vw);
     list-style-image: url('/images/ftlogo-v1_brand-ft-logo-square-coloured.svg');
 }
 
