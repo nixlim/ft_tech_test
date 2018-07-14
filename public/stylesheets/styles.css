@@ -6,6 +6,10 @@ body {
     background-color: #FFF1E5;
 }
 
+input {
+    font-size: 18px;
+}
+
 .o-typography-headline--large {
     font-family: MetricWeb, serif;
 }
