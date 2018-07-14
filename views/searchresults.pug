@@ -25,7 +25,7 @@ block content
                   input(type='hidden' name='searchTerm' value=searchTerms)
                   if resultCount > 0
                     button(value='-20' name='nextTwentyResults' type='submit') Previous 20 Results
-                  p Displaying results #{resultCount} to #{resultCount + 20} of #{numberOfResults}
+                  p Displaying results #{resultCount + 1} to #{resultCount + 20} of #{numberOfResults}
                   if (resultCount + 20) <= numberOfResults
                     button(value='20' name='nextTwentyResults' type='submit') Next 20 Results
                 ul
