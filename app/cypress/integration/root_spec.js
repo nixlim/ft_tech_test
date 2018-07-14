@@ -1,7 +1,7 @@
 describe('"/" page', () => {
   it('should render root page', () => {
     cy.visit('http://localhost:3000')
-    cy.contains('Financial Times Headlines Search Engine')
+    cy.contains('FT Headlines Search')
     cy.contains('Search FT Headlines')
   })
 })
