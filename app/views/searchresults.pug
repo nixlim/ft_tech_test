@@ -1,0 +1,31 @@
+extends layout
+
+block content
+    div(class='o-grid-row')
+        div(data-o-grid-colspan='12 S11 Scenter M9 L8 XL7')
+            h1(class='o-typography-headline--large')= title
+            div(class='o-forms')
+                form(action='/search', method='POST')
+                    label(aria-describedby='text-box-info' for='o-forms-standard' class='o-forms__label') Search FT Headlines
+                    div(id='text-box-info' class='o-forms__additional-info')
+                        | Enter search keywords to search for FT articles containing the keywords entered.
+                        | To search only for article titles containing keywords use "title: Search Term(s)" (e.g. "title: Clinton").'
+                    input(type='text' id='o-forms-standard' class='o-forms__text' placeholder='Enter search terms here' name='searchTerm' required)
+                    input(type='submit' class='searchButton' value='Search')
+
+            -var numberOfResults = data.results[0]['indexCount']
+            -var searchTerms = data.query['queryString']
+
+            h2(class='o-typography-heading-level-2') Search results (#{numberOfResults} results for "#{searchTerms}"):
+            if numberOfResults === 0
+                p No Results for "#{searchTerms}"
+            else
+                ul
+                    each result in data.results
+                        each article in result.results
+                            -var articleURL = article.location['uri']
+                            -var articleTitle = article.title['title']
+                            li
+                              div(class="o-teaser o-teaser--small" data-o-component="o-teaser")
+                                 h2(class="o-teaser__heading")
+                                   a(class='result-link' href= articleURL + '?FTCamp=engage/CAPI/webapp/Channel_MAKERS_TECH_TEST//B2B' target='_blank') #{articleTitle}
