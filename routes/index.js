@@ -10,12 +10,12 @@ router.get('/', (request, response) => {
 })
 
 router.get('/searchresults', (request, response) => {
-  let queryBuilder = new ApiQueryManager(session.result, response, renderSearchResults)
+  let queryBuilder = new ApiQueryManager(session.searchTerm, response, renderSearchResults)
   queryBuilder.buildQuery()
 })
 
 router.post('/search', (request, response) => {
-  session.result =  request.body.searchTerm
+  session.searchTerm =  request.body.searchTerm
   response.redirect('/searchresults')
 })
 
