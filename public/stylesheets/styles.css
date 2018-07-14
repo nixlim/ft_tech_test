@@ -11,17 +11,17 @@ body {
 }
 
 .o-forms__label {
-    font-size: calc(20px + 0.5vw);
+    font-size: calc(22px + 0.5vmax);
 }
 
 .o-forms__additional-info {
-    font-size: calc(15px + 0.5vw);
+    font-size: calc(18px + 0.5vmax);
     line-height: normal;
 }
 
 
 li, .result-link {
-    font-size: calc(20px + 0.5vmax);
+    font-size: calc(22px + 0.5vmax);
     list-style-image: url('/images/ftlogo-v1_brand-ft-logo-square-coloured.svg');
 }
 
