@@ -11,7 +11,7 @@ describe('ApiQueryManager', () => {
   }
 
   let searchTerm = 'brexit'
-  let queryJSONString = '{\"queryString\":\"brexit\",\"queryContext\":{\"curations\":[\"ARTICLES\"]},\"resultContext\":{\"aspects\":[\"title\",\"location\"],\"maxResults\":\"20\"}}'
+  let queryJSONString = '{\"queryString\":\"brexit\",\"queryContext\":{\"curations\":[\"ARTICLES\"]},\"resultContext\":{\"aspects\":[\"title\",\"location\"],\"maxResults\":\"20\",\"offset\":\"0\"}}'
 
   let apiQueryManager = new ApiQueryManager(searchTerm)
   apiQueryManager.ApiConnector = MockApiConnector

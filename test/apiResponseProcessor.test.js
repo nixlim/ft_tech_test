@@ -6,6 +6,11 @@ describe('ApiResponseProcessor', () => {
   }
   let connectionOnSpy = jest.spyOn(mockConnection, 'on')
   let apiResponseProcessor = new ApiResponseProcessor()
+  let JSONObject = '{"query":{"queryString":"undefined"}}'
+
+  beforeEach(() => {
+    apiResponseProcessor.apiResponse = ''
+  })
 
   describe('#processResponse', () => {
     let processResponseSpy = jest.spyOn(apiResponseProcessor, 'processResponse')
@@ -33,8 +38,15 @@ describe('ApiResponseProcessor', () => {
   describe('_collateResponseChunks', () => {
 
     it('should add data to this.response', () => {
-      apiResponseProcessor._collateResponseChunks('some data')
-      expect(apiResponseProcessor.apiResponse).toEqual('some data')
+      apiResponseProcessor._collateResponseChunks(JSONObject)
+      expect(apiResponseProcessor.apiResponse).toEqual(JSONObject)
     })
+  })
+
+  describe('_parseResponseJSON', () => {
+    let renderFunction = jest.fn()
+    apiResponseProcessor.apiResponse = JSONObject
+    apiResponseProcessor._parseResponseJSON('routerCallback', renderFunction)
+    expect(renderFunction).toHaveBeenCalled()
   })
 })
