@@ -10,6 +10,11 @@ input {
     font-size: 18px;
 }
 
+.home-link, .home-link:hover, .home-link:visited {
+    color: inherit;
+    text-decoration:none
+}
+
 .o-typography-headline--large {
     font-family: MetricWeb, serif;
 }

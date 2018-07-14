@@ -18,7 +18,6 @@ class ApiResponseProcessor {
   }
 
   _parseResponseJSON (routerCallback, renderFunction) {
-    console.log(this.apiResponse)
     renderFunction(routerCallback, JSON.parse(this.apiResponse))
   }
 
