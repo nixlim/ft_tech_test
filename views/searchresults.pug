@@ -26,7 +26,10 @@ block content
                   if resultCount > 0
                     button(class='o-buttons o-buttons-icon o-buttons-icon--arrow-left o-buttons-icon--icon-only' value='-20' name='nextTwentyResults' type='submit')
                       span(class='o-buttons-icon__label') Previous 20 Results
-                  span(class='o-typography-body results-display') Displaying results #{resultCount + 1} to #{resultCount + 20} of #{numberOfResults}
+                  if (resultCount + 20) <= numberOfResults
+                    span(class='o-typography-body results-display') Displaying results #{resultCount + 1} to #{resultCount + 20} of #{numberOfResults}
+                  else
+                    span(class='o-typography-body results-display') Displaying results #{resultCount + 1} to #{numberOfResults} of #{numberOfResults}
                   if (resultCount + 20) <= numberOfResults
                     button(class='o-buttons o-buttons-icon o-buttons-icon--arrow-right o-buttons-icon--icon-only' value='20' name='nextTwentyResults' type='submit')
                         span(class='o-buttons-icon__label') Next 20 Results
