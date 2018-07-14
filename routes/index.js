@@ -10,7 +10,7 @@ router.get('/', (request, response) => {
 })
 
 router.get('/searchresults', (request, response) => {
-  let queryBuilder = new ApiQueryManager(session.result, response, render)
+  let queryBuilder = new ApiQueryManager(session.result, response, renderSearchResults)
   queryBuilder.buildQuery()
 })
 
@@ -19,7 +19,7 @@ router.post('/search', (request, response) => {
   response.redirect('/searchresults')
 })
 
-let render = (response, data) => {
+let renderSearchResults = (response, data) => {
   response.render('searchresults', {
     title: 'FT Headlines Search',
     data: data

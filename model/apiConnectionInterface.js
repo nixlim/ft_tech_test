@@ -1,4 +1,5 @@
 const http = require('http')
+require('dotenv').config()
 
 class ApiConnectionInterface {
   constructor (searchQuery, responseProcessor) {
@@ -6,7 +7,7 @@ class ApiConnectionInterface {
     this.apiResponseProcessor = responseProcessor
     this.connectionConfig = {
       hostname: 'api.ft.com',
-      path: '/content/search/v1?apiKey=59cbaf20e3e06d3565778e7bb6d633b231e14a829d3c757511c91e5f',
+      path: `/content/search/v1?apiKey=${process.env.API_KEY}`,
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
