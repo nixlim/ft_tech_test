@@ -14,9 +14,9 @@ class ApiConnectionInterface {
     }
   }
 
-  sendRequestToApi () {
+  sendRequestToApi (routerCallback, renderFunction) {
     let APICall = http.request(this.connectionConfig, (openAPIConnection) => {
-      this.apiResponseProcessor.processResponse(openAPIConnection)
+      this.apiResponseProcessor.processResponse(openAPIConnection, routerCallback, renderFunction)
     })
     this._writeToApi(APICall)
   }

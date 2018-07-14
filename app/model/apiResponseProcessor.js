@@ -3,13 +3,13 @@ class ApiResponseProcessor {
     this.apiResponse = ''
   }
 
-  processResponse (apiConnection) {
+  processResponse (apiConnection, routerCallback, renderFunction) {
     apiConnection.on('data', (dataChunk) => {
       this._collateResponseChunks(dataChunk)
     })
 
     apiConnection.on('end', () => {
-      this._parseResponseJSON()
+      this._parseResponseJSON(routerCallback, renderFunction)
     })
   }
 
@@ -17,8 +17,9 @@ class ApiResponseProcessor {
     this.apiResponse += dataChunk
   }
 
-  _parseResponseJSON () {
-    return JSON.parse(this.apiResponse)
+  _parseResponseJSON (routerCallback, renderFunction) {
+    console.log(this.apiResponse)
+    renderFunction(routerCallback, JSON.parse(this.apiResponse))
   }
 
 }

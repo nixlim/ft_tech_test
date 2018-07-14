@@ -1,0 +1,27 @@
+extends layout
+
+block content
+    div(class='o-grid-row')
+        div(data-o-grid-colspan='12 S11 Scenter M9 L8 XL7')
+            h1(class='o-typography-headline--large')= title
+            div(class='o-forms')
+                form(action='/search', method='POST')
+                    label(aria-describedby='text-box-info' for='o-forms-standard' class='o-forms__label') Search FT Headlines
+                    div(id='text-box-info' class='o-forms__additional-info')
+                        | Enter search keywords to search for FT articles containing the keywords entered.
+                        | To search only for titles containing keywords use "title:\"Search Terms\" (e.g. "title:\"Clinton\").'
+                    input(type='text' id='o-forms-standard' class='o-forms__text' placeholder='Enter search terms here' name='searchTerm' required)
+                    input(type='submit' class='searchButton' value='Search')
+
+            -var resultsJSONObject = data.results
+            h2 Search results:
+            if resultsJSONObject[0]['indexCount'] === 0
+                p No Results for "#{data.query['queryString']}"
+            else
+                ul
+                    each result in resultsJSONObject
+                        each article in result.results
+                            -var articleId = article.id
+                            each articleTitle in article.title
+                                li
+                                  a(class='result-link' href='https://www.ft.com/content/' + articleId + 'FTCamp=engage/CAPI/webapp/Channel_MAKERS_TECH_TEST//B2B') #{articleTitle}
