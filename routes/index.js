@@ -30,7 +30,6 @@ router.post('/searchResultsPagination', (request, response) => {
     let offSetFromForm = parseInt(request.body.nextTwentyResults)
     let newOffSetValue = offSetInSession + offSetFromForm
     session.offSet = newOffSetValue.toString()
-    console.log(session.offSet)
   }
 
   response.redirect('/searchresults')

@@ -28,6 +28,14 @@ input {
     line-height: normal;
 }
 
+.o-buttons-icon--arrow-right {
+    margin-left: 20px;
+}
+
+.results-display {
+    margin-left: 20px;
+}
+
 
 li, .result-link {
     font-size: calc(22px + 0.5vmax);
