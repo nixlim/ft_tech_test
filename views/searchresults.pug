@@ -24,10 +24,12 @@ block content
                 form(action='/searchResultsPagination', method='POST')
                   input(type='hidden' name='searchTerm' value=searchTerms)
                   if resultCount > 0
-                    button(class='o-buttons o-buttons--mono o-buttons-icon o-buttons-icon--arrow-left' value='-20' name='nextTwentyResults' type='submit') Previous 20 Results
+                    button(class='o-buttons o-buttons-icon o-buttons-icon--arrow-left o-buttons-icon--icon-only' value='-20' name='nextTwentyResults' type='submit')
+                      span(class='o-buttons-icon__label') Previous 20 Results
                   span(class='o-typography-body results-display') Displaying results #{resultCount + 1} to #{resultCount + 20} of #{numberOfResults}
                   if (resultCount + 20) <= numberOfResults
-                    button(class='o-buttons o-buttons--mono o-buttons-icon o-buttons-icon--arrow-right' value='20' name='nextTwentyResults' type='submit') Next 20 Results
+                    button(class='o-buttons o-buttons-icon o-buttons-icon--arrow-right o-buttons-icon--icon-only' value='20' name='nextTwentyResults' type='submit')
+                        span(class='o-buttons-icon__label') Next 20 Results
                 ul
                     each result in data.results
                         each article in result.results
