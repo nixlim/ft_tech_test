@@ -18,8 +18,8 @@ class ApiQueryManager {
         'curations': ['ARTICLES']
       },
       'resultContext': {
-        'aspects': [ 'title' ],
-        'maxResults': '10'
+        'aspects': [ 'title', 'location' ],
+        'maxResults': '20'
       }
     })
     this._makeApiCall()

@@ -9,19 +9,23 @@ block content
                     label(aria-describedby='text-box-info' for='o-forms-standard' class='o-forms__label') Search FT Headlines
                     div(id='text-box-info' class='o-forms__additional-info')
                         | Enter search keywords to search for FT articles containing the keywords entered.
-                        | To search only for titles containing keywords use "title:\"Search Terms\" (e.g. "title:\"Clinton\").'
+                        | To search only for article titles containing keywords use "title: Search Term(s)" (e.g. "title: Clinton").'
                     input(type='text' id='o-forms-standard' class='o-forms__text' placeholder='Enter search terms here' name='searchTerm' required)
                     input(type='submit' class='searchButton' value='Search')
 
-            -var resultsJSONObject = data.results
-            h2 Search results:
-            if resultsJSONObject[0]['indexCount'] === 0
-                p No Results for "#{data.query['queryString']}"
+            -var numberOfResults = data.results[0]['indexCount']
+            -var searchTerms = data.query['queryString']
+
+            h2(class='o-typography-heading-level-2') Search results (#{numberOfResults} results for "#{searchTerms}"):
+            if numberOfResults === 0
+                p No Results for "#{searchTerms}"
             else
                 ul
-                    each result in resultsJSONObject
+                    each result in data.results
                         each article in result.results
-                            -var articleId = article.id
-                            each articleTitle in article.title
-                                li
-                                  a(class='result-link' href='https://www.ft.com/content/' + articleId + 'FTCamp=engage/CAPI/webapp/Channel_MAKERS_TECH_TEST//B2B') #{articleTitle}
+                            -var articleURL = article.location['uri']
+                            -var articleTitle = article.title['title']
+                            li
+                              div(class="o-teaser o-teaser--small" data-o-component="o-teaser")
+                                 h2(class="o-teaser__heading")
+                                   a(class='result-link' href= articleURL + '?FTCamp=engage/CAPI/webapp/Channel_MAKERS_TECH_TEST//B2B' target='_blank') #{articleTitle}
