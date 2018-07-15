@@ -189,6 +189,10 @@ The app was deployed to Heroku from GitHub. It can be accessed [here](https://ft
 
 At the moment, in order to implement pagination, I had to make use of session variables and place the related logic into the controller. It is not the best solution by far since, ideally, there should be only minimal logic in the controller. I would have preferred to use a singleton class option but could not work out how to make a singleton class in Node within a reasonable amount of time, so I had to go with an option that worked.
 
+#### Continuous Integration & Deployment
+
+I originally planned to use Travis CI for continuous integration and deployment. Unfortunately, as my repo was private up to submission, Travis CI does not provide free option for private repos and the monthly cost of a paid account was beyond what I thought was reasonable to be spent for one project. 
+
 ### Improvements
 
 #### Accessibility
