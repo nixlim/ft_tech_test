@@ -24,6 +24,7 @@ This app is deployed on [Heroku](https://ft-headline-search.herokuapp.com/)
 - [Issues, Improvement & Challenges](#issues,-improvement-&-challenges)
 - [What I learned](#what-i-learned)
 - [Acknowledgements](#acknowledgments)
+- [Licensing](#licensing)
 
 ## The Task
 Build a website that shows a list of news headlines from Financial Times. You may use FT Developer APIs to achieve this.
@@ -75,10 +76,10 @@ To better understand how the FT API and various technologies work I:
 
 - reviewed FT API reference to understand how to correctly structure an API query, available options and endpoints, structure of the returned response;
 - reviewed the Node.js' [`http.request`](https://nodejs.org/dist/latest-v8.x/docs/api/http.html#http_http_request_options_callback) documentation to understand how to make the HTTP call;
-- run [`express-generator`](https://expressjs.com/en/starter/generator.html) to review standard set up for an Express.JS app; and
-- built a small simple app in that made a call to the API and printed the response to the console.
+- run [`express-generator`](https://expressjs.com/en/starter/generator.html) to review the standard set up for an Express.JS app; and
+- built a small simple app that made a call to the API and printed the response to the console.
 
-I used [Json Parser Online](http://json.parser.online.fr/) by Olivier Cuenot to get a better view of the structure of the returned JSON.
+I used [Json Parser Online](http://json.parser.online.fr/) by Olivier Cuenot to get a better view of the structure of the returned JSON object.
 
 ### Design
 
@@ -87,7 +88,7 @@ I used [Json Parser Online](http://json.parser.online.fr/) by Olivier Cuenot to 
 I decided that the MVP I wanted to achieve would be:
 
 - a simple search box that would allow the user to enter search terms;
-- follows a search, a list of up to 20 results would be displayed.
+- following a search, a list of up to 20 results would be displayed.
 
 Once MVP was complete, I added some Origami components and the ability to page through results at 20 a time (backwards and forwards).
 
@@ -168,13 +169,13 @@ The coverage is not as high as I would like. This is due to the use of callbacks
 
 ### Feature Tests
 
-I planned to use Cypress.io to feature test the app. Due to time constraints, I did not manage to write anything but the very basis test to check that the homepage opens correctly. This is definately one of the issues that needs improvement.
+I planned to use Cypress.io to feature test the app. Due to time constraints, I did not manage to write anything but a very basic test to check that the homepage opens correctly. This is definitely one of the issues that needs improvement.
 
-Run cypress test with `npm run feature_test`, then click on `Run all specs` in the Cypress GUI.
+Run Cypress test with `npm run feature_test`, then click on `Run all specs` in the Cypress GUI.
 
 ### Linting
 
-I used Webstorm's built-in ESLint with [JavaScript Standard Style](https://standardjs.com/) plugin 
+I used Webstorm's built-in ESLint with [JavaScript Standard Style](https://standardjs.com/) plugin.
 
 ## Deployment
 
@@ -196,17 +197,21 @@ I have provided some very basic accessibility features. ARIA provides quite deta
 
 #### Search Terms
 
-The FT API allows various search options, such as search by title, sorting and searching various types of content. The app could be improved by providing the user with the opportunity to perform an 'advanced' search that would make a fuller use of API's capabilities.
+The FT API allows various search options, such as search by title, sorting and searching various types of content. The app could be improved by providing the user with an opportunity to perform an 'advanced' search that would make a fuller use of the API's capabilities.
 
 #### Adding Images to Search Results
 
-The FT API allows obtaining the url for the image associated with the article. While I did try to implement the display of the images, I did not know enough of Origami to make images display properly and in the end did not implement it, but it is an option for improvement.
+The FT API allows obtaining the url for the image associated with the article. While I did try to implement displaying of the images, I did not know enough of Origami to make images display properly in the correct place and in the end did not implement it, but it is an option for improvement.
+
+#### Better Use of Origami
+
+While I did use some of the Origami components, I had to write some additional CSS for the pages to display as I envisaged. Undoubtedly, this is due to lack of familiarity with Origami and this is an area that could be improved.
 
 ### Challenges
 
 #### Promises
 
-I went down a rabbit whole for about a day trying to get an async/await implementation of the code to work. In the end, the solution was to simply use callback. I do not consider this time as wasted since I learned how callbacks work and as well as learning a lot about promises in JavaScript.
+I went down a rabbit hole for about a day trying to get an async/await implementation of the code to work. In the end, the solution was to simply use callbacks. I do not consider this time as wasted since I learned how callbacks work and as well as learning a lot about promises in JavaScript.
 
 #### JSON
 
@@ -214,7 +219,7 @@ It was a bit of a challenge to work out how to get the data out of the JSON resp
 
 #### Resetting sessions
 
-My calculation of the API offset uses sessions to store the current offset. I had a few interesting moments where the app would break because I did not reset the offset stored in session. In the end, implementing a separate route for pagination of results, and resetting the session variable on new search resolved this issue.
+My calculation of the API offset uses sessions to store the current offset. I had a few interesting moments where the app would break because I did not reset the offset stored in session. In the end, implementing a separate route for pagination of results and resetting the session variable on new search resolved this issue.
 
 ## What I learned
 
@@ -224,10 +229,18 @@ My calculation of the API offset uses sessions to store the current offset. I ha
 - Offset v Cursor API pagination
 - Things always take longer than you plan
 - Accessibility is a major topic which I need to improve on
-- There is usually a way to do what you want to do, even if that produces ugly code - at least that gives you a good place to start.
+- There is usually a way to do what you want to do, even if that produces ugly code - at least that gives you a good place to start
 
 ## Acknowledgments
 
-* Makers for getting me to love coding more than I thought was possible and teaching me that eternal truth 'It is not hard, it's just new'
-* FT for giving me an opportunity to do this tech test and write code that searched their API for `undefined` more times than I care to admit.
+* Makers for getting me to love coding more than I thought was possible and teaching me that 'It is not hard, it's just new'.
+* FT for giving me an opportunity to do this tech test and write code that searched their API for `undefined` more times than I care to admit. It does produce about 215 results, by the way :)
 * StackOverflow poster (I lost the actual post, apologies) for helping me to get out of async hell by crisply responding to a post by another questioner with 'You don't need promises for this, callback function would suffice'. I learned callbacks then in one of those 'Aha!' moments. Thank you!
+
+## Licensing
+
+FT places certain requirements in respect of information necessary to include in the API query string, and display of FT logo for attribution purposes. I have complied with these requirements.
+
+---
+`Prepared by: Igor Ryabchuk`
+
